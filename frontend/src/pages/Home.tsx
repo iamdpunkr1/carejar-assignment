@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useState, useEffect } from "react";
 import Card from '../components/Card';
 
@@ -43,7 +43,7 @@ const Home = () => {
         </header>
       </nav>
 
-        <main className="container mx-auto px-4" style={{ display: "flex", flexWrap: "wrap",gap:"7px" }}>
+        <main className="container mx-auto px-4 flex flex-wrap gap-[7px]" >
           {departments.map((dept:deptProps) => <Card key={dept.id} name={dept.name}  image={dept.image}/>)}
         </main>
 

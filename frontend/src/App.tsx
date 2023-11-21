@@ -1,4 +1,4 @@
-import React from "react";
+
 import Home from "./pages/Home";
 import Doctors from "./pages/Doctors";
 import { Routes, Route } from "react-router-dom";

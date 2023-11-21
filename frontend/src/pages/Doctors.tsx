@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { FaThumbsUp } from "react-icons/fa6";
 import { BiCalendarEvent } from "react-icons/bi";
@@ -36,22 +36,21 @@ const Doctors = () => {
     <section className='mx-5'>{
     doctors.map(({id, name, category, fees, experience, ratings, specialization, address, image, patients}) => {
         return (
-            <div key={id} className="doctor-box flex justify-between items-center flex-wrap " style={{  padding: "20px", border: "1px solid #ccc", borderRadius: "5px", margin: "10px" }}>
+            <div key={id} className="doctor-box flex justify-between items-center flex-wrap p-[20px] border-2 border-solid border-gray-300 rounded-md m-[10px]">
                 <div className='flex flex-wrap justify-center'>
                 <div className='relative'>
-                <img src={image} alt={`Doctor ${id}`} 
-                    style={{ width: "120px", height: "120px", borderRadius: "50%", margin: "7px" }} />
+                <img src={image} alt={`Doctor ${id}`}  className='rounded-full m-[7px] w-[120px] h-[120px]' />
                  <div className='w-5 h-5 bg-violet-600 rounded-full absolute left-[114px] bottom-8 border-solid border-2 border-white'>
                         <TiTick color="#fff" />
                  </div>
                 </div>
                 <div>
-                    <h6 style={{  color: "#007bff" }}>Dr. {name}</h6>
-                    <p className='text-xs' style={{  color: "#777" }}>{category}</p>
-                    <p className='text-xs' style={{  color: "#777" }}>{experience} years experience overall</p>
-                    <span className='text-xs font-medium'>{address}</span>
-                    <span className='text-xs' style={{  color: "#777" }}> &#x2022; {specialization}</span>
-                    <p className='text-xs'  style={{  color: "#777" , display:"flex"}}>
+                    <h6 className="text-blue-500">Dr. {name}</h6>
+                    <p className='text-xs text-gray-600'>{category}</p>
+                    <p className='text-xs text-gray-600'>{experience} years experience overall</p>
+                    <span className='text-xs font-medium'>{address} </span>
+                    <span className='text-xs text-gray-600'>  &#x2022;  {specialization}</span>
+                    <p className='text-xs text-gray-600 flex'>
                         <TbCurrencyRupee className='mt-[3px]' /> {fees} Consultation fee at clinic</p>
                     <div className='flex mt-4'>
                     <span className='mr-2 px-2 py-[1px] bg-green-600 rounded-sm w-16 text-xs flex text-white justify-around'>
@@ -70,7 +69,7 @@ const Doctors = () => {
                     </div>
                     
                    
-                    <button onClick={() => handleBookAppointment(id)} className='w-44 py-1'  style={{ background: "#007bff", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer" }}>
+                    <button onClick={() => handleBookAppointment(id)} className='w-44 py-1 bg-blue-500 text-white border-none rounded-md cursor-pointer'  >
                        
                        <p className='text-xs font-semibold'>Book Appointment</p>
                        <p className='text-[8px]'>No Booking fee</p> 
