@@ -1,9 +1,13 @@
-import React from 'react'
+
 import {Link} from 'react-router-dom'
 
-const Card = ({id, name, image}) => {
+type CardProps = {
+    name: string,
+    image: string
+}
+const Card = ({ name, image}:CardProps) => {
   return (
-    <div key={id}  className="my-2 w-60 bg-white border border-gray-200 rounded-md shadow">
+    <div  className="my-2 w-60 bg-white border border-gray-200 rounded-md shadow">
         <Link to={`/${name}`}>
             <img className="rounded-md " src={image} alt={`${name}`} />
         </Link>

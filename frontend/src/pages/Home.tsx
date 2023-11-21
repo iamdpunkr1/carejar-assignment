@@ -1,10 +1,16 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import Card from "../components/Card";
+import Card from '../components/Card';
+
+type deptProps = {
+    id: string,
+    name: string,
+    image: string
+}
 
 const Home = () => {
     const [departments, setDepartments] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
 
     useEffect(() => {
@@ -15,7 +21,7 @@ const Home = () => {
           console.log(data)
           setDepartments(data)
           setIsLoading(false)
-        }catch(error){
+        }catch(error: any){
           console.log(error.message)
         }
       }
@@ -38,7 +44,7 @@ const Home = () => {
       </nav>
 
         <main className="container mx-auto px-4" style={{ display: "flex", flexWrap: "wrap",gap:"7px" }}>
-          {departments.map((dept) => <Card id={dept.id} name={dept.name}  image={dept.image}/>)}
+          {departments.map((dept:deptProps) => <Card key={dept.id} name={dept.name}  image={dept.image}/>)}
         </main>
 
       </>

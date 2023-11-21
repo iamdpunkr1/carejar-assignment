@@ -8,7 +8,7 @@ import { TbCurrencyRupee } from "react-icons/tb";
 const Doctors = () => {
   const {category} = useParams()
   const [doctors, setDoctors] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
  
   useEffect(() => {
     const fetchDoctors = async()=>{
@@ -18,7 +18,7 @@ const Doctors = () => {
             console.log(data)
             setDoctors(data)
             setIsLoading(false)
-        }catch(error){
+        }catch(error:any){
             console.log(error.message)
         }
         }
@@ -26,7 +26,7 @@ const Doctors = () => {
     
   }, [category]);
 
-  const handleBookAppointment = (doctorId) => {
+  const handleBookAppointment = (doctorId:string) => {
     console.log(`Booking appointment with doctor ${doctorId}`);
   }
 
