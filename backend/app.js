@@ -4,7 +4,7 @@ const {generateDoctors} = require('./controlllers/doctorsControlller')
 const { generateDepartments} = require('./controlllers/departmentController')
 
 const app = express()   
-app.use(express.json()) // for parsing application/json
+app.use(express.json()) 
 app.use(cors())
 
 app.get('/', generateDepartments)

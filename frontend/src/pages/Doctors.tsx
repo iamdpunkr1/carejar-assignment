@@ -9,8 +9,10 @@ const Doctors = () => {
   const {category} = useParams()
   const [doctors, setDoctors] = useState([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
- 
+  const [error, setError] = useState<string | null>(null)
+  
   useEffect(() => {
+    //fetch doctors based on category
     const fetchDoctors = async()=>{
         try{
             const response = await fetch(`http://localhost:5000/${category}`)
@@ -19,7 +21,8 @@ const Doctors = () => {
             setDoctors(data)
             setIsLoading(false)
         }catch(error:any){
-            console.log(error.message)
+            setError(error.message)
+
         }
         }
         fetchDoctors()
@@ -30,7 +33,9 @@ const Doctors = () => {
     console.log(`Booking appointment with doctor ${doctorId}`);
   }
 
-  if(isLoading) return (<div className='flex justify-center items-center'>Loading...</div>)
+  if(error) return <div className='flex justify-center items-center text-red-500 h-screen'>{error} - Please refresh the page</div>
+
+  if(isLoading) return <div className='flex justify-center items-center h-screen'>Loading...</div>
 
   return (
     <section className='mx-5'>{

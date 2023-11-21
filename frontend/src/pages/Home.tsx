@@ -11,7 +11,7 @@ type deptProps = {
 const Home = () => {
     const [departments, setDepartments] = useState([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
-
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
       const fetchDepartments = async()=>{
@@ -22,7 +22,7 @@ const Home = () => {
           setDepartments(data)
           setIsLoading(false)
         }catch(error: any){
-          console.log(error.message)
+          setError(error.message)
         }
       }
       fetchDepartments()
@@ -30,9 +30,10 @@ const Home = () => {
   
 
 
+    if(error) return <div className='flex justify-center items-center text-red-500 h-screen'>{error} - Please refresh the page</div>
 
   
-    if(isLoading) return (<div className='flex justify-center items-center'>Loading...</div>)
+    if(isLoading) return (<div className='flex justify-center items-center h-screen'>Loading...</div>)
   
     return (
       <>
