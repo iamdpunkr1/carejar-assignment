@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { generateDoctors } from '../utils/generateDoctors'
 import { FaThumbsUp } from "react-icons/fa6";
 import { BiCalendarEvent } from "react-icons/bi";
 import { TiTick } from "react-icons/ti";
@@ -12,8 +11,19 @@ const Doctors = () => {
   const [isLoading, setIsLoading] = useState(true)
  
   useEffect(() => {
-    setDoctors(generateDoctors(5, category))
-    setIsLoading(false)
+    const fetchDoctors = async()=>{
+        try{
+            const response = await fetch(`http://localhost:5000/${category}`)
+            const data = await response.json()
+            console.log(data)
+            setDoctors(data)
+            setIsLoading(false)
+        }catch(error){
+            console.log(error.message)
+        }
+        }
+        fetchDoctors()
+    
   }, [category]);
 
   const handleBookAppointment = (doctorId) => {

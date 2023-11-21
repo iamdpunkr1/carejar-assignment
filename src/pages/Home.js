@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { generateDepartments } from "../utils/departments";
 import Card from "../components/Card";
 
 const Home = () => {
@@ -9,9 +8,18 @@ const Home = () => {
 
 
     useEffect(() => {
-  
-      setDepartments(generateDepartments())
-      setIsLoading(false)
+      const fetchDepartments = async()=>{
+        try{
+          const response = await fetch('http://localhost:5000/')
+          const data = await response.json()
+          console.log(data)
+          setDepartments(data)
+          setIsLoading(false)
+        }catch(error){
+          console.log(error.message)
+        }
+      }
+      fetchDepartments()
     }, []);
   
 
