@@ -41,7 +41,7 @@ const Doctors = () => {
     <section className='mx-5'>{
     doctors.map(({id, name, category, fees, experience, ratings, specialization, address, image, patients}) => {
         return (
-            <div key={id} className="doctor-box flex justify-between items-center flex-wrap p-[20px] border-2 border-solid border-gray-300 rounded-md m-[10px]">
+            <div key={id} className="doctor-box flex justify-between items-center flex-wrap p-[20px] lg:px-20 border-2 border-solid border-gray-300 rounded-md m-[10px]">
                 <div className='flex flex-wrap justify-center'>
                 <div className='relative'>
                 <img src={image} alt={`Doctor ${id}`}  className='rounded-full m-[7px] w-[120px] h-[120px]' />

@@ -44,9 +44,9 @@ const Home = () => {
         </header>
       </nav>
 
-        <main className="container mx-auto px-4 flex flex-wrap gap-[7px]" >
+        <section className="container mx-auto px-4 flex flex-wrap gap-[7px]" >
           {departments.map((dept:deptProps) => <Card key={dept.id} name={dept.name}  image={dept.image}/>)}
-        </main>
+        </section>
 
       </>
     );
