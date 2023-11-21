@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "medicare_server",
+  "description": "carejar_server",
   "main": "app.js",
   "scripts": {
     "test": "node app.js"
