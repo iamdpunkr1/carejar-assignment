@@ -16,7 +16,7 @@ const Home = () => {
     useEffect(() => {
       const fetchDepartments = async()=>{
         try{
-          const response = await fetch('http://localhost:5000/')
+          const response = await fetch('https://carejar-assignment-api.vercel.app/')
           const data = await response.json()
           console.log(data)
           setDepartments(data)

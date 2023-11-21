@@ -15,7 +15,7 @@ const Doctors = () => {
     //fetch doctors based on category
     const fetchDoctors = async()=>{
         try{
-            const response = await fetch(`http://localhost:5000/${category}`)
+            const response = await fetch(`https://carejar-assignment-api.vercel.app/${category}`)
             const data = await response.json()
             console.log(data)
             setDoctors(data)
